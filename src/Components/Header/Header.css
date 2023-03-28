@@ -1,0 +1,26 @@
+.header{
+  color: #fff;
+  background-color: #1C2B35;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  min-width: 100%;
+  height: 80px;
+}
+.header a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 12px;
+}
+.header a:hover{
+  color: aqua;
+}
+img.img {
+  margin-left: 20px;
+  padding:10px;
+}
+.align{
+  margin-top: 25px;
+  margin-right: 20px;
+}
