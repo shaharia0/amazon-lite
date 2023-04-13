@@ -14,11 +14,13 @@ import Inventory from './Components/Inventory/Inventory';
 import Login from './Components/Login/Login';
 import cartProductsLoaders from './Loaders/cartProductsLoaders';
 import CheckOut from './Components/CheckOut/CheckOut';
+import Error from './Components/Error/Error';
 
 const router = createBrowserRouter([
   {
     path:'/',
     element: <Home></Home>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',

@@ -1,0 +1,25 @@
+.title{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 150px;
+  background-color: #fd5454;
+  padding: 10px;
+}
+.description{
+  text-align: center;
+  font-size: 25px;
+  margin-top: 10px;
+  background-color: #afabab;
+}
+.btn{
+  margin: 10px;
+  padding: 10px;
+  background-color: #5eacec;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.items{
+  text-align: center;
+}
