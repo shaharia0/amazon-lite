@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { addToDb, getShoppingCart } from "../../utilities/fakedb";
+import { addToDb, deleteShoppingCart, getShoppingCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import { Link } from "react-router-dom";
+import { FcRight } from "react-icons/fc";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -37,7 +39,11 @@ const Shop = () => {
     //step 5: set the cart
     setCart(savedCart);
   }, [products]);
-
+   
+  const handleClearCart = ()=>{
+    setCart([]);
+    deleteShoppingCart();
+  }
   return (
     <div className="shop-container">
       <div className="products-container">
@@ -50,7 +56,13 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart
+         handleClearCart={handleClearCart}
+        cart={cart}>
+          <Link to='/orders'>
+          <button className='btn-order'>Review Order <FcRight></FcRight></button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );

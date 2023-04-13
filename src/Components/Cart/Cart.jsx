@@ -2,8 +2,9 @@ import React from 'react';
 import './Cart.css'
 import { FaShoppingCart } from "react-icons/fa";
 import { FcRight } from "react-icons/fc";
+import { TrashIcon } from '@heroicons/react/24/solid'
 
-const Cart = ({cart}) => {
+const Cart = ({cart, handleClearCart, children}) => {
   // const {cart} = props;
   console.log(cart);
   let totalPrice=0;
@@ -29,8 +30,9 @@ const Cart = ({cart}) => {
         <p>Total Shipping: ${totalShipping}</p>
         <p>Tax: ${tax.toFixed(2)}</p>
          <h4>Grand Total: ${grandTotal.toFixed(2)}</h4>
-         <button className='btn-carts'>Clear cart <FaShoppingCart></FaShoppingCart></button>
-         <button className='btn-order'>Review Order <FcRight></FcRight></button>
+         <button onClick={handleClearCart} className='btn-carts'>Clear cart <FaShoppingCart></FaShoppingCart></button>
+         {/* <button className='btn-order'>Review Order <FcRight></FcRight></button> */}
+         {children}
     </div>
   );
 };
