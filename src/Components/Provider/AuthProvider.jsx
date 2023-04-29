@@ -10,9 +10,11 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true);
 
   const createUser = (email,password)=>{
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password);
   }
   const signIn = (email, password)=>{
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   }
   const logOut = ()=>{
@@ -33,7 +35,9 @@ const AuthProvider = ({children}) => {
       setLoading(false);
     })
     // stop observing while unmounting
-    return unsubscribe();
+    return ()=>{
+      return unsubscribe();
+    }
   },[])
   return (
     <AuthContext.Provider value={authInfo}>
