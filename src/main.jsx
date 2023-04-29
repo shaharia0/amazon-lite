@@ -17,6 +17,7 @@ import CheckOut from './Components/CheckOut/CheckOut';
 import Error from './Components/Error/Error';
 import SignUp from './Components/SignUp/SignUp';
 import AuthProvider from './Components/Provider/AuthProvider';
+import PrivateRoute from './routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/checkout',
-        element: <CheckOut></CheckOut>
+        element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
       },
       {
         path: '/login',
