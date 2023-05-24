@@ -12,3 +12,11 @@
 .cart-container{
   margin-top: 50px;
 }
+.pagination{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.pag-btn{
+  margin-left: 20px;
+  padding: 10px;
+}

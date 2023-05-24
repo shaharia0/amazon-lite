@@ -3,11 +3,19 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from "../../utilities/fa
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FcRight } from "react-icons/fc";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const {totalProducts} = useLoaderData();
+
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(totalProducts / itemsPerPage);
+   
+  const pageNumbers =  [...Array(totalPages).keys()];
+
+  console.log(totalProducts);
 
   const handleAddToCart = (product) => {
     const newCart = [...cart, product];
@@ -45,7 +53,8 @@ const Shop = () => {
     deleteShoppingCart();
   }
   return (
-    <div className="shop-container">
+   <>
+      <div className="shop-container">
       <div className="products-container">
         {products.map((product) => (
           <Product
@@ -65,6 +74,13 @@ const Shop = () => {
         </Cart>
       </div>
     </div>
+    {/* pagination code  */}
+    <div className="pagination">
+      {
+        pageNumbers.map(number => <button className="pag-btn" key={number}> {number} </button>)
+      }
+    </div>
+   </>
   );
 };
 
