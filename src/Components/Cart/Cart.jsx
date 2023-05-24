@@ -6,7 +6,7 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 
 const Cart = ({cart, handleClearCart, children}) => {
   // const {cart} = props;
-  console.log(cart);
+  // console.log(cart);
   let totalPrice=0;
   let totalShipping =0;
   let quantity = 0;
